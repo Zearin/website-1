@@ -15,9 +15,13 @@ npm install --save-dev @babel/template
 
 When calling `template` as a function with a string argument, you can provide _placeholders_ which will get substituted when the template is used.
 
-You can use two different kinds of placeholders: syntactic placeholders (e.g. `%%name%%`) or identifier placeholders (e.g. `NAME`). `@babel/template` supports both those approaches by default, but they can't be mixed. If you need to be explicit about what syntax you are using, you can use the [`syntacticPlaceholders`](#syntacticplaceholders) option.
+You can use two different kinds of placeholders: 
+ - syntactic placeholders (e.g., `%%name%%`); or
+ - identifier placeholders (e.g., `NAME`).
 
-Please note that syntactic placeholders were introduced in Babel 7.4.0. If you don't control the `@babel/template` version (for example, when importing it from a `@babel/core@^7.0.0` peer dependency), you must use identifier placeholders. On the other hand, syntactic placeholders have some advantages: they can be used where identifiers would be a syntax error (e.g. in place of function bodies, or in export declarations), and they don't conflict with uppercase variables (e.g., `new URL()`).
+`@babel/template` supports both these approaches by default, but they can't be mixed. If you need to be explicit about what syntax you are using, you can use the [`syntacticPlaceholders`](#syntacticplaceholders) option.
+
+**Please note:** Syntactic placeholders were introduced in Babel 7.4.0. If you don't control the `@babel/template` version (for example, when importing it from a `@babel/core@^7.0.0` peer dependency), you must use identifier placeholders. On the other hand, syntactic placeholders have some advantages: they can be used where identifiers would be a syntax error (e.g., in place of function bodies, or in `export` declarations), and they don't conflict with uppercase variables (e.g., `new URL()`).
 
 Input (syntactic placeholders):
 
@@ -191,8 +195,8 @@ Default: `/^[_$A-Z0-9]+$/`
 
 A pattern to search for when looking for Identifier and StringLiteral
 nodes that should be considered placeholders.
-'false' will disable placeholder searching entirely, leaving only the
-'placeholderWhitelist' value to find placeholders.
+`false` will disable placeholder searching entirely, leaving only the
+`placeholderWhitelist` value to find placeholders.
 
 ##### preserveComments
 
